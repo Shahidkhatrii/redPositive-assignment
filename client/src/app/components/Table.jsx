@@ -68,7 +68,7 @@ const Table = () => {
   const columns = ["ID", "Username", "Phone Number", "Email", "Hobbies"];
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col px-1">
         {emailStatus && (
           <Toaster message={emailStatus?.msg} type={emailStatus.type} />
         )}
@@ -114,37 +114,37 @@ const Table = () => {
                             className="w-4 h-4 cursor-pointer text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                           />
                         </td>
-                        <td className="w-fit max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <td className="w-full lg:max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                           <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                             {columns[0]}
                           </span>
                           {i + 1}
                         </td>
-                        <td className="w-fit max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <td className="w-full  lg:max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                           <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                             {columns[1]}
                           </span>
                           {data.username}
                         </td>
-                        <td className="w-fit max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <td className="w-full lg:max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                           <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                             {columns[2]}
                           </span>
                           {data.phone}
                         </td>
-                        <td className="w-fit max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <td className="w-full lg:max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                           <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                             {columns[3]}
                           </span>
                           {data.email}
                         </td>
-                        <td className="w-fit max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <td className="w-full lg:max-w-[20vw] break-words lg:w-auto p-1 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                           <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                             {columns[4]}
                           </span>
                           {data.hobbies}
                         </td>
-                        <td className="w-fit max-w-[20vw] lg:w-auto py-1 px-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <td className="w-full lg:max-w-[20vw] lg:w-auto py-1 px-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                           <div className="flex justify-center gap-1">
                             <EditForm formData={data} />
                             <DeleteItem _id={data._id} />
