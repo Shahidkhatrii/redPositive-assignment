@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { CircularProgress } from "@mui/material";
-import Form from "./form";
+import Form from "./Form";
 import api from "../api/appApi";
 import EditForm from "./EditForm";
 import DeleteItem from "./DeleteItem";
