@@ -17,8 +17,7 @@ app.use(
 );
 app.use("/api", formRoutes);
 app.use("/api/send-email", emailRoutes);
-// app.use("/api/users", require("./routes/userRoutes"));
 
 app.listen(port, () => {
-  console.log(`hiiiiii ${port}`);
+  console.log(`server running on port: ${port}`);
 });

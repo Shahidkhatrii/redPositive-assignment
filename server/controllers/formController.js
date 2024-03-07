@@ -46,9 +46,6 @@ const updateRow = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc Delete contact
-//@route DELETE /api/contacts/:id
-//@access private
 const deleteRow = asyncHandler(async (req, res) => {
   const row = await Form.findById(req.query.id);
   if (!row) {

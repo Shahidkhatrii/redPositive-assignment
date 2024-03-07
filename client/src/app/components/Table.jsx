@@ -7,6 +7,7 @@ import EditForm from "./EditForm";
 import DeleteItem from "./DeleteItem";
 import { useFetchContext } from "../context/fetchContext";
 import SendData from "./SendData";
+import Toaster from "./Toaster";
 
 const Table = () => {
   const { fetchAgain } = useFetchContext();
@@ -14,6 +15,8 @@ const Table = () => {
   const [loaded, setLoaded] = useState(false);
   const [isSending, SetIsSending] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
+  const [emailStatus, setEmailStatus] = useState(null);
+
   console.log("Selected rows: ", selectedRows);
   // Handle Selection
   const handleCheckboxChange = (id) => {
@@ -33,10 +36,18 @@ const Table = () => {
       const response = await api.post("/api/send-email/", {
         selectedRows: selectedData,
       });
-      console.log("Email sent successfully:", response.data);
+      setEmailStatus({ msg: "Email sent successfully!", type: "success" });
       setSelectedRows({});
     } catch (error) {
-      console.error("Error sending email:", error);
+      if (error.response.status === 400) {
+        setEmailStatus({
+          msg: "You haven't selected any data!",
+          type: "error",
+        });
+      } else {
+        setEmailStatus({ msg: "Error sending email!", type: "error" });
+        console.error(error?.message);
+      }
     } finally {
       SetIsSending(false);
     }
@@ -60,6 +71,9 @@ const Table = () => {
   return (
     <>
       <div className="flex flex-col">
+        {emailStatus && (
+          <Toaster message={emailStatus?.msg} type={emailStatus.type} />
+        )}
         {loaded ? (
           <>
             <Form />
@@ -85,10 +99,10 @@ const Table = () => {
                 </thead>
 
                 <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                  {data.length === 0 && (
+                  {data?.length === 0 && (
                     <p className="mt-5">No previous data available</p>
                   )}
-                  {data.length >= 0 &&
+                  {data?.length >= 0 &&
                     data?.map((data, i) => (
                       <tr
                         key={data._id}

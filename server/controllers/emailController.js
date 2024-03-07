@@ -38,9 +38,9 @@ const sendEmail = asyncHandler(async (req, res) => {
   // Mail content
   const mailOptions = {
     from: "shahidkhatriii34@gmail.com",
-    to: "luxxyzuxxy700@gmail.com",
-    subject: "Subject of the email",
-    html: `<p>Selected rows data:</p>${tableHtml}`,
+    to: "info@redpositive.in",
+    subject: "Successful Submission of Selected Data - Mo. Shahid Khatri",
+    html: `<p>Selected data: </p>${tableHtml}`,
   };
 
   //   Sending email
