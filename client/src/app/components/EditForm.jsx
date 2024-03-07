@@ -5,7 +5,6 @@ import FormModal from "./FormModal";
 const EditForm = ({ formData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
-    console.log("open");
     setIsModalOpen(true);
   };
   const closeModal = () => {

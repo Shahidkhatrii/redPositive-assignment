@@ -43,8 +43,6 @@ const FormCard = ({
   const onSumbit = async (data) => {
     if (update) {
       try {
-        console.log(_id);
-        console.log("updated: ", data);
         await api.put(`api/updateRow?id=${_id}`, data);
         onClose();
         setFetchAgain(!fetchAgain);

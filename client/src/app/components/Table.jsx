@@ -16,8 +16,6 @@ const Table = () => {
   const [isSending, SetIsSending] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
   const [emailStatus, setEmailStatus] = useState(null);
-
-  console.log("Selected rows: ", selectedRows);
   // Handle Selection
   const handleCheckboxChange = (id) => {
     setSelectedRows((prevSelectedRows) => ({
@@ -32,7 +30,7 @@ const Table = () => {
     try {
       // Filter out only the selected rows
       const selectedData = data.filter((item) => selectedRows[item._id]);
-      console.log(selectedData, "data...");
+
       const response = await api.post("/api/send-email/", {
         selectedRows: selectedData,
       });
